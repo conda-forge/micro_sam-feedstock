@@ -1,4 +1,4 @@
-{% set version = "0.0.2" %}
+{% set version = "0.1.0" %}
 
 package:
   name: micro_sam
@@ -6,10 +6,11 @@ package:
 
 source:
   url: https://github.com/computational-cell-analytics/micro-sam/archive/{{ version }}.tar.gz
-  sha256: de422ae97141e56abc79a60ffef7ffb0700a0b115e664a6e76f4eb0c836fdfde
+  sha256: 52ccab022cf6efcd7a624bac5f88d8ea54da034cdd835134cf215738546f62ff
 
 build:
   entry_points:
+    - micro_sam.annotator = micro_sam.sam_annotator.annotator:main
     - micro_sam.annotator_2d = micro_sam.sam_annotator.annotator_2d:main
     - micro_sam.annotator_3d = micro_sam.sam_annotator.annotator_3d:main
     - micro_sam.annotator_tracking = micro_sam.sam_annotator.annotator_tracking:main
@@ -26,17 +27,14 @@ requirements:
   run:
     - pooch
     - python >=3.8
-    - python-elf
+    - python-elf >=0.4.8
     - pytorch
     - segment-anything
     - torchvision
     - tqdm
     - zarr
-  # I would like to make napari an optional dependency, but could not find any documentation
-  # on the optional feature, despite the corresponding issue on conda claiming it is supported:
-  # https://github.com/conda/conda/issues/1696
-  # optional:
-  #   - napari  # napari is an optional dependency for GUI support
+  run_constrained:
+    - napari >=0.4.18
 
 test:
   imports:
