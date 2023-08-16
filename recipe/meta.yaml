@@ -25,6 +25,7 @@ requirements:
     - python >=3.8
     - pip
   run:
+    - kornia
     - pooch
     - python >=3.8
     - python-elf >=0.4.8
