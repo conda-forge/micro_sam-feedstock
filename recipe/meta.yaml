@@ -32,6 +32,7 @@ requirements:
     - pytorch
     - segment-anything
     - torchvision
+    - torch_em
     - tqdm
     - zarr
   run_constrained:
