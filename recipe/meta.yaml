@@ -1,4 +1,4 @@
-{% set version = "0.2.2" %}
+{% set version = "0.3.0post1" %}
 
 package:
   name: micro_sam
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/computational-cell-analytics/micro-sam/archive/{{ version }}.tar.gz
-  sha256: 578b4760aa42b9b708dd9375a853562483b42f523be0533b048b7e8aa692276e
+  sha256: 4b9333d7be0008797838b4c597501548d7bb202e5f948858f5cb77ce72a79d92
 
 build:
   entry_points:
@@ -15,7 +15,7 @@ build:
     - micro_sam.annotator_3d = micro_sam.sam_annotator.annotator_3d:main
     - micro_sam.annotator_tracking = micro_sam.sam_annotator.annotator_tracking:main
     - micro_sam.image_series_annotator = micro_sam.sam_annotator.image_series_annotator:main
-    - micro_sam.precompute_embeddings = micro_sam.util:main
+    - micro_sam.precompute_embeddings = micro_sam.precompute_state:main
   noarch: python
   number: 0
   script: pip install . --no-deps --ignore-installed --no-cache-dir -vvv
@@ -32,6 +32,7 @@ requirements:
     - pytorch
     - segment-anything
     - torchvision
+    - torch_em
     - tqdm
     - zarr
   run_constrained:
