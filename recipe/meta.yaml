@@ -1,4 +1,4 @@
-{% set version = "0.3.0post1" %}
+{% set version = "0.4.0" %}
 
 package:
   name: micro_sam
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/computational-cell-analytics/micro-sam/archive/{{ version }}.tar.gz
-  sha256: 4b9333d7be0008797838b4c597501548d7bb202e5f948858f5cb77ce72a79d92
+  sha256: a2cc6936e4bccfb656d2b753b6c819fa8f7855cb77b0b9aef54ecdc79f7bd592
 
 build:
   entry_points:
@@ -37,7 +37,6 @@ requirements:
     - zarr
   run_constrained:
     - napari >=0.4.18
-    - torch_em >=0.5.2
 
 test:
   imports:
