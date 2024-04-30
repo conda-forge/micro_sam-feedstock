@@ -1,4 +1,4 @@
-{% set version = "0.5.0" %}
+{% set version = "1.0.0" %}
 
 package:
   name: micro_sam
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/computational-cell-analytics/micro-sam/archive/{{ version }}.tar.gz
-  sha256: 4ba2aef5a077377fb7ce85d7c77f3c4f1b8023ab3eda508d7e1bd0b47739f59c
+  sha256: c9bdf7d141911a56062e4df4e0d23a094848a70381b8e09ba9013eea53bbdadd
 
 build:
   entry_points:
@@ -34,7 +34,7 @@ requirements:
     - pytorch
     - segment-anything
     - torchvision
-    - torch_em >=0.7.0
+    - torch_em >=0.7.1
     - tqdm
     - timm
     - zarr
