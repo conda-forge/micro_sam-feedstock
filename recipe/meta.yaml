@@ -5,7 +5,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/computational-cell-analytics/micro-sam/archive/{{ version }}.tar.gz
+  url: https://github.com/computational-cell-analytics/micro-sam/archive/v{{ version }}.tar.gz
   sha256: c9bdf7d141911a56062e4df4e0d23a094848a70381b8e09ba9013eea53bbdadd
 
 build:
