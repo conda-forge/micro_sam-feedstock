@@ -25,8 +25,8 @@ requirements:
     - pip
   run:
     - kornia
-    - napari < 0.5
-    - nifty=1.2.1=*_4
+    - napari <0.5
+    - nifty =1.2.1=*_4
     - pooch
     - pyqt
     - python >=3.8
