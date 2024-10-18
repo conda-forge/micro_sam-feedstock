@@ -1,4 +1,4 @@
-{% set version = "1.0.1" %}
+{% set version = "1.1.0" %}
 
 package:
   name: micro_sam
@@ -6,17 +6,19 @@ package:
 
 source:
   url: https://github.com/computational-cell-analytics/micro-sam/archive/v{{ version }}.tar.gz
-  sha256: 5b7cc562a639d68de4f9462f3696f17b479ea0d669eaedb34687b65ceac715e9
+  sha256: 0437894400052cb466cd2db1bbe9b7ee44751bf628869624ecfff7a6086a5076
 
 build:
   entry_points:
     - micro_sam.annotator_2d = micro_sam.sam_annotator.annotator_2d:main
     - micro_sam.annotator_3d = micro_sam.sam_annotator.annotator_3d:main
     - micro_sam.annotator_tracking = micro_sam.sam_annotator.annotator_tracking:main
+    - micro_sam.automatic_segmentation = micro_sam.automatic_segmentation:main
+    - micro_sam.benchmark_sam = micro_sam.evaluation.benchmark_datasets:main
     - micro_sam.image_series_annotator = micro_sam.sam_annotator.image_series_annotator:main
     - micro_sam.precompute_embeddings = micro_sam.precompute_state:main
   noarch: python
-  number: 1
+  number: 0
   script: pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
 requirements:
@@ -26,7 +28,7 @@ requirements:
     - setuptools
   run:
     - kornia
-    - napari <0.5
+    - napari >=0.5
     - nifty =1.2.1=*_4
     - pooch
     - pyqt
