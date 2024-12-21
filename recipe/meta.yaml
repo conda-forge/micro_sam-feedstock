@@ -1,4 +1,4 @@
-{% set version = "1.1.1" %}
+{% set version = "1.2.0" %}
 {% set python_min = "3.10" %}
 
 package:
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/computational-cell-analytics/micro-sam/archive/v{{ version }}.tar.gz
-  sha256: 0212cee6fe8a6339572e9dddaf09caf23fc82e9e08c5f96062867b3465c98255
+  sha256: 9e122b0b4078b6a2303ef4563c576b17487fdd4133ca23df548c3a7d71e97ce6
 
 build:
   entry_points:
@@ -19,7 +19,7 @@ build:
     - micro_sam.image_series_annotator = micro_sam.sam_annotator.image_series_annotator:main
     - micro_sam.precompute_embeddings = micro_sam.precompute_state:main
   noarch: python
-  number: 1
+  number: 0
   script: pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
 requirements:
