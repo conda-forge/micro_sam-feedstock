@@ -18,7 +18,7 @@ build:
     - micro_sam.image_series_annotator = micro_sam.sam_annotator.image_series_annotator:main
     - micro_sam.precompute_embeddings = micro_sam.precompute_state:main
   noarch: python
-  number: 0
+  number: 1
   script: pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
 requirements:
@@ -29,9 +29,8 @@ requirements:
   run:
     - kornia
     - napari >=0.5
-    - nifty =1.2.1=*_4
+    - nifty >=1.2.1
     - pooch
-    - protobuf <5
     - pyqt
     - python >=3.8
     - python-elf >=0.4.8
