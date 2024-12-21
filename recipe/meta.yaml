@@ -23,7 +23,7 @@ build:
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - pip
     - setuptools
   run:
@@ -32,7 +32,7 @@ requirements:
     - nifty >=1.2.1
     - pooch
     - pyqt
-    - python >=3.8
+    - python >={{ python_min }}
     - python-elf >=0.4.8
     - python-xxhash
     - pytorch >=2.4.0
@@ -44,6 +44,8 @@ requirements:
     - zarr
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - micro_sam
   source_files:
