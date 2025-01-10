@@ -19,7 +19,7 @@ build:
     - micro_sam.image_series_annotator = micro_sam.sam_annotator.image_series_annotator:main
     - micro_sam.precompute_embeddings = micro_sam.precompute_state:main
   noarch: python
-  number: 0
+  number: 1
   script: pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
 requirements:
@@ -42,7 +42,9 @@ requirements:
     - torch_em >=0.7.1
     - tqdm
     - timm
-    - zarr
+    # 2.18.4 shows a circular import
+    # We still are not compatible with zarr 3
+    - zarr <3.0,!=2.18.4
 
 test:
   requires:
