@@ -42,7 +42,7 @@ requirements:
     - torch_em >=0.7.1
     - tqdm
     - timm
-    - zarr
+    - zarr <3.0
 
 test:
   requires:
