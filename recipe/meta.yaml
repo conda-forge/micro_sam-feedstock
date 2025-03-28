@@ -1,4 +1,4 @@
-{% set version = "1.3.1" %}
+{% set version = "1.4.0" %}
 {% set python_min = "3.10" %}
 
 package:
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/computational-cell-analytics/micro-sam/archive/v{{ version }}.tar.gz
-  sha256: 445fd009a4005ee35784a372c7a7310b384326244fe3a1b4c7e1d980398c1c7c
+  sha256: 95383a740f3de2f106870d9346f6bf4987fe1d6a385403537a26586ab382cc8a
 
 build:
   entry_points:
@@ -18,6 +18,7 @@ build:
     - micro_sam.benchmark_sam = micro_sam.evaluation.benchmark_datasets:main
     - micro_sam.image_series_annotator = micro_sam.sam_annotator.image_series_annotator:main
     - micro_sam.precompute_embeddings = micro_sam.precompute_state:main
+    - micro_sam.info = micro_sam.util:micro_sam_info
   noarch: python
   number: 0
   script: pip install . --no-deps --ignore-installed --no-cache-dir -vvv
@@ -29,19 +30,20 @@ requirements:
     - setuptools
   run:
     - kornia
-    - napari >=0.5
-    - nifty >=1.2.1
+    - napari >=0.5,<0.6.0
+    - nifty >=1.2.2
     - pooch
     - pyqt
     - python >={{ python_min }}
-    - python-elf >=0.4.8
+    - python-elf >=0.6.1
     - python-xxhash
     - pytorch >=2.4.0
     - segment-anything
     - torchvision
-    - torch_em >=0.7.1
+    - torch_em >=0.7.8
     - tqdm
     - timm
+    - xarray <2025.3.0
     - zarr <3.0
 
 test:
