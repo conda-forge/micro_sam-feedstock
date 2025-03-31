@@ -20,7 +20,7 @@ build:
     - micro_sam.precompute_embeddings = micro_sam.precompute_state:main
     - micro_sam.info = micro_sam.util:micro_sam_info
   noarch: python
-  number: 0
+  number: 1
   script: pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
 requirements:
