@@ -27,7 +27,7 @@ Current release info
 
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-micro_sam-green.svg)](https://anaconda.org/conda-forge/micro_sam) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/micro_sam.svg)](https://anaconda.org/conda-forge/micro_sam) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/micro_sam.svg)](https://anaconda.org/conda-forge/micro_sam) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/micro_sam.svg)](https://anaconda.org/conda-forge/micro_sam) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-micro__sam-green.svg)](https://anaconda.org/conda-forge/micro_sam) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/micro_sam.svg)](https://anaconda.org/conda-forge/micro_sam) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/micro_sam.svg)](https://anaconda.org/conda-forge/micro_sam) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/micro_sam.svg)](https://anaconda.org/conda-forge/micro_sam) |
 
 Installing micro_sam
 ====================
