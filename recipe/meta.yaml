@@ -20,7 +20,7 @@ build:
     - micro_sam.precompute_embeddings = micro_sam.precompute_state:main
     - micro_sam.info = micro_sam.util:micro_sam_info
   noarch: python
-  number: 0
+  number: 1
   script: pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
 requirements:
@@ -40,7 +40,7 @@ requirements:
     - pytorch >=2.4.0
     - segment-anything
     - torchvision
-    - torch_em >=0.7.8
+    - torch_em >=0.7.8,<0.7.10
     - tqdm
     - timm
     - xarray
