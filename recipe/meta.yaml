@@ -1,4 +1,4 @@
-{% set version = "1.5.0" %}
+{% set version = "1.6.0" %}
 {% set python_min = "3.10" %}
 
 package:
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/computational-cell-analytics/micro-sam/archive/v{{ version }}.tar.gz
-  sha256: fee0563f26953b5a113a7e5d81ea3c9fa96b6d2c9c5612ba14f3ba3a28ebf92d
+  sha256: 5181f7d5101c03d96ca12b9a50b50a120fe60b2d7618b36b672083e1bbc57a6d
 
 build:
   entry_points:
@@ -16,11 +16,13 @@ build:
     - micro_sam.annotator_tracking = micro_sam.sam_annotator.annotator_tracking:main
     - micro_sam.automatic_segmentation = micro_sam.automatic_segmentation:main
     - micro_sam.benchmark_sam = micro_sam.evaluation.benchmark_datasets:main
+    - micro_sam.evaluate = micro_sam.evaluation.evaluation:main
     - micro_sam.image_series_annotator = micro_sam.sam_annotator.image_series_annotator:main
-    - micro_sam.precompute_embeddings = micro_sam.precompute_state:main
     - micro_sam.info = micro_sam.util:micro_sam_info
+    - micro_sam.precompute_embeddings = micro_sam.precompute_state:main
+    - micro_sam.train = micro_sam.training.training:main
   noarch: python
-  number: 1
+  number: 0
   script: pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
 requirements:
@@ -31,7 +33,7 @@ requirements:
   run:
     - kornia
     - napari >=0.5,<0.7.0
-    - nifty >=1.2.2
+    - nifty >=1.2.3
     - pooch
     - pyqt
     - python >={{ python_min }}
@@ -40,7 +42,7 @@ requirements:
     - pytorch >=2.4.0
     - segment-anything
     - torchvision
-    - torch_em >=0.7.8,<0.7.10
+    - torch_em >=0.7.10
     - tqdm
     - timm
     - xarray
