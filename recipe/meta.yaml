@@ -1,4 +1,4 @@
-{% set version = "1.6.1" %}
+{% set version = "1.6.2" %}
 {% set python_min = "3.10" %}
 
 package:
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/computational-cell-analytics/micro-sam/archive/v{{ version }}.tar.gz
-  sha256: ca12c24b4383d7f7807de0df8f26984f3f39b4246816a3488503dda9697aa7e4
+  sha256: df9422f5b4f1f931e3b38994b8accaa3ed5a88b18d998106ce2b4a8e47074014
 
 build:
   entry_points:
