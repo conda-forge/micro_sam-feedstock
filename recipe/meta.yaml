@@ -22,7 +22,7 @@ build:
     - micro_sam.precompute_embeddings = micro_sam.precompute_state:main
     - micro_sam.train = micro_sam.training.training:main
   noarch: python
-  number: 0
+  number: 1
   script: pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
 requirements:
