@@ -1,4 +1,4 @@
-{% set version = "1.7.1" %}
+{% set version = "1.7.3" %}
 {% set python_min = "3.10" %}
 
 package:
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/computational-cell-analytics/micro-sam/archive/v{{ version }}.tar.gz
-  sha256: 0c9e97fbbdad24002c913c1e6df1a10d7d0f1dc4df244b121a1b02b0b2c9426a
+  sha256: 88d5f4ac576854b01ff202e5ab969019821c802f28b8205d6815fc80f95c8e5e
 
 build:
   entry_points:
@@ -22,7 +22,7 @@ build:
     - micro_sam.precompute_embeddings = micro_sam.precompute_state:main
     - micro_sam.train = micro_sam.training.training:main
   noarch: python
-  number: 1
+  number: 0
   script: pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
 requirements:
