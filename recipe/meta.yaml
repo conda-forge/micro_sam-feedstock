@@ -1,4 +1,4 @@
-{% set version = "1.7.7" %}
+{% set version = "1.8.0" %}
 {% set python_min = "3.10" %}
 
 package:
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/computational-cell-analytics/micro-sam/archive/v{{ version }}.tar.gz
-  sha256: ac8e2a6abfac5f328e1668e252b8d01b48030124d7cc500089caf20d762770c3
+  sha256: dece82c4233de0fd8088fcc11e60a4a073d72be72e2e8f30d932efc65b298981
 
 build:
   entry_points:
@@ -31,18 +31,18 @@ requirements:
     - pip
     - setuptools
   run:
+    - bioimage-cpp
     - kornia
     - napari >=0.5,<0.7.0
-    - nifty >=1.2.3
     - pooch
     - pyqt
     - python >={{ python_min }}
-    - python-elf >=0.6.1
+    - python-elf >=0.9.0
     - python-xxhash
     - pytorch >=2.4.0
     - segment-anything
     - torchvision
-    - torch_em >=0.7.10
+    - torch_em >=0.9.0
     - tqdm
     - timm
     - xarray
