@@ -1,5 +1,6 @@
-{% set version = "1.8.1" %}
+{% set version = "1.8.2" %}
 {% set python_min = "3.10" %}
+{% set python_max = "3.13" %}
 
 package:
   name: micro_sam
@@ -7,7 +8,7 @@ package:
 
 source:
   url: https://github.com/computational-cell-analytics/micro-sam/archive/v{{ version }}.tar.gz
-  sha256: c8ab7d42a01da11f10490e7d295fdad627ce78b35ccd81f8d671fd30c13bbed6
+  sha256: 73e65a69339a7275846944c4f7a41a736dbb7b4708be199ea6794f69711dcfc1
 
 build:
   entry_points:
@@ -36,7 +37,7 @@ requirements:
     - napari >=0.5,<0.7.0
     - pooch
     - pyqt
-    - python >={{ python_min }}
+    - python >={{ python_min }},<{{ python_max }}
     - python-elf >=0.9.0
     - python-xxhash
     - pytorch >=2.4.0
