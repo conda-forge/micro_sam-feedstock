@@ -191,6 +191,3 @@ Feedstock Maintainers
 * [@anwai98](https://github.com/anwai98/)
 * [@constantinpape](https://github.com/constantinpape/)
 
-
-<!-- dummy commit to enable rerendering -->
-
