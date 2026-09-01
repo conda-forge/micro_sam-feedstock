@@ -1,4 +1,4 @@
-{% set version = "1.8.12" %}
+{% set version = "1.8.13" %}
 {% set python_min = "3.11" %}
 {% set python_max = "3.15" %}
 
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/computational-cell-analytics/micro-sam/archive/v{{ version }}.tar.gz
-  sha256: 23d05c4e431393cf4cb25a3e2b7d90bd677cf49e96e4325f19a1b5bfa7a41a67
+  sha256: 0c6c84ef98fef07fe1b44104c527c754607a55eaa92fd641e4134692b335bf26
 
 build:
   entry_points:
@@ -42,7 +42,7 @@ requirements:
     - python-elf >=0.9.0
     - python-xxhash
     - pytorch >=2.5
-    - segment-anything
+    - segment-anything >=1.0.1
     - torchvision
     - torch_em >=0.9.0
     - trackastra >=0.5.3
