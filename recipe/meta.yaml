@@ -1,4 +1,4 @@
-{% set version = "1.8.14" %}
+{% set version = "1.9.0" %}
 {% set python_max = "3.15" %}
 
 package:
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/computational-cell-analytics/micro-sam/archive/v{{ version }}.tar.gz
-  sha256: 0ab1f0f588a0e2cf2a0908ddc7c98ee4267bc701a7bc505a9732668793ba7c6a
+  sha256: 00f3af586a5eb15e39e359627443d66e991003317a0ccb51b1e55bab4849d96f
 
 build:
   entry_points:
@@ -31,24 +31,38 @@ requirements:
     - pip
     - setuptools
   run:
-    - bioimage-cpp >=0.3
-    - bioimageio.core >=0.11
-    - kornia
-    - napari >=0.7.1,<0.10
-    - pooch
-    - pyqt6
     - python >={{ python_min }},<{{ python_max }}
-    - python-elf >=0.9.0
+    - bioimage-cpp >=0.3,<0.11
+    - bioimageio.core >=0.11,<0.12
+    - h5py
+    - imagecodecs
+    - imageio
+    - joblib
+    - kornia
+    - magicgui
+    - matplotlib-base
+    - napari >=0.7.1,<0.11
+    - natsort
+    - networkx
+    - numpy <3
+    - pandas
+    - pooch
+    - pydantic <2.14
+    - pyqt6
+    - python-elf >=0.9.0,<0.10
     - python-xxhash
-    - pytorch >=2.5
+    - pytorch >=2.5,<3
+    - scikit-image
+    - scikit-learn
     - segment-anything >=1.0.1
-    - torchvision
-    - torch_em >=0.9.0
-    - trackastra >=0.5.3
-    - tqdm
+    - superqt
     - timm
+    - torch_em >=0.9.0,<0.11
+    - torchvision
+    - tqdm
+    - trackastra >=0.5.3,<0.6
     - xarray
-    - zarr
+    - zarr <4
 
 test:
   requires:
