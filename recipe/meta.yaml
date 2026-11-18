@@ -78,7 +78,7 @@ test:
     - micro_sam.v2.instance_segmentation
     - micro_sam.v2.automatic_prompt_generation
     - micro_sam.classical_features
-    - micro_sam.training
+    - micro_sam.v2.training
   commands:
     - micro_sam --help
     - micro_sam --version
