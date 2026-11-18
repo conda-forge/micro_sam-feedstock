@@ -68,8 +68,10 @@ test:
   requires:
     - python {{ python_min }}
     - pytest
+  # conda-build does not expand '**' recursively, so list each test folder.
   source_files:
-    - test/**/*.py
+    - test/*.py
+    - test/test_models/*.py
   imports:
     - micro_sam
     - micro_sam.util
