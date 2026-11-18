@@ -1,4 +1,5 @@
-{% set version = "1.9.0" %}
+{% set version = "2.0.0" %}
+{% set python_min = "3.11" %}
 {% set python_max = "3.15" %}
 
 package:
@@ -7,20 +8,11 @@ package:
 
 source:
   url: https://github.com/computational-cell-analytics/micro-sam/archive/v{{ version }}.tar.gz
-  sha256: 00f3af586a5eb15e39e359627443d66e991003317a0ccb51b1e55bab4849d96f
+  sha256: 0f5c3b86e8e90303dccf0f7827cb4bb8928ca3c24df987140a6f806b6a719bb7
 
 build:
   entry_points:
-    - micro_sam.annotator_2d = micro_sam.sam_annotator.annotator_2d:main
-    - micro_sam.annotator_3d = micro_sam.sam_annotator.annotator_3d:main
-    - micro_sam.annotator_tracking = micro_sam.sam_annotator.annotator_tracking:main
-    - micro_sam.automatic_segmentation = micro_sam.automatic_segmentation:main
-    - micro_sam.benchmark_sam = micro_sam.evaluation.benchmark_datasets:main
-    - micro_sam.evaluate = micro_sam.evaluation.evaluation:main
-    - micro_sam.image_series_annotator = micro_sam.sam_annotator.image_series_annotator:main
-    - micro_sam.info = micro_sam.util:micro_sam_info
-    - micro_sam.precompute_embeddings = micro_sam.precompute_state:main
-    - micro_sam.train = micro_sam.training.training:main
+    - micro_sam = micro_sam._cli:cli
   noarch: python
   number: 0
   script: pip install . --no-deps --ignore-installed --no-cache-dir -vvv
@@ -29,37 +21,69 @@ requirements:
   host:
     - python {{ python_min }}
     - pip
-    - setuptools
+    - setuptools >=42
   run:
     - python >={{ python_min }},<{{ python_max }}
-    - bioimage-cpp >=0.3,<0.11
-    - bioimageio.core >=0.11,<0.12
+    - bioimage-cpp >=0.7
+    - bioimage-py >=0.2.2
+    - bioimageio.core >=0.11
+    - click
+    - h5py
+    - huggingface_hub
+    - imagecodecs
+    - imageio
+    - joblib
     - kornia
+    - magicgui
+    - matplotlib-base
     - napari >=0.7.1,<0.11
+    - natsort
+    - networkx
+    - numpy
+    - pandas
     - pooch
     - pydantic <2.14
     - pyqt6
-    - python-elf >=0.9.0,<0.10
+    - python-elf >=0.9
     - python-xxhash
-    - pytorch >=2.5,<3
+    - pytorch >=2.5
+    # sam-2 provides the 'sam2' module (Segment Anything 2).
+    - sam-2 >=1.0.0.20241215
+    - scikit-image
+    - scikit-learn
     - segment-anything >=1.0.1
+    - superqt
+    - tensordict
     - timm
-    - torch_em >=0.9.0,<0.11
+    - torch_em >=0.10.8
     - torchvision
     - tqdm
-    - trackastra >=0.5.3,<0.6
+    - trackastra >=0.5.3
+    - transformers >=4.56
     - xarray
-    - zarr <4
+    - z5py >=3
+    - zarr >=3
 
 test:
   requires:
     - python {{ python_min }}
-  imports:
-    - micro_sam
+    - pytest
   source_files:
     - test/**/*.py
+  imports:
+    - micro_sam
+    - micro_sam.util
+    - micro_sam.v1.util
+    - micro_sam.v2.util
+    - micro_sam.v2.instance_segmentation
+    - micro_sam.v2.automatic_prompt_generation
+    - micro_sam.classical_features
+    - micro_sam.training
   commands:
-    - python -m unittest discover -s test -v
+    - micro_sam --help
+    - micro_sam --version
+    # Run a v2 subset that loads only the hvit_t weights. The deselected CLI test needs hvit_t_cells.
+    - pytest -m "not v1 and not gui and not slow" --deselect test/test_cli.py::TestCLI::test_automatic_segmentation test/test_cli.py test/test_util.py test/test_models/test_peft_sam2.py test/test_models/test_unisam2.py test/test_v2_*.py
 
 about:
   license: MIT
